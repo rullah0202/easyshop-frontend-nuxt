@@ -95,7 +95,20 @@ let product = ref(null)
 let currentImage = ref(null)
 
 onBeforeMount(async () => {
-    product.value = await $axios.get(`/api/get-product-by-id/${route.params.id}`)
+
+    try {
+        product.value = await $axios.get(`/api/get-product-by-id/${route.params.id}`)
+
+        if (!product.value) {
+            throw createError({
+                statusCode: 404,
+                statusMessage: 'Page Not Found'
+            })
+        }
+    } catch (error) {
+        console.log(error)
+    }
+
 })
 
 watchEffect(() => {
