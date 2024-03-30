@@ -34,6 +34,12 @@
                     <Icon name="ic:sharp-install-mobile" size="17"/>
                     App
                 </li>
+                <li class="px-3 hover:text-[#FF4646] cursor-pointer">
+                    <NuxtLink to="/search">
+                        Search
+                    </NuxtLink>
+                    
+                </li>
                 <li 
                     @mouseenter="isAccountMenu = true"
                     @mouseleave="isAccountMenu = false"

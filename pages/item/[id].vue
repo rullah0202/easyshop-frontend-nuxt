@@ -102,7 +102,8 @@ onBeforeMount(async () => {
         if (!product.value) {
             throw createError({
                 statusCode: 404,
-                statusMessage: 'Page Not Found'
+                statusMessage: 'Page Not Found',
+                fatal: true
             })
         }
     } catch (error) {
